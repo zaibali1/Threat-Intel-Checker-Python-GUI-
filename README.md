@@ -81,13 +81,23 @@ Supported formats: .txt, .csv
 
 First column of CSV is used
 
+## 💾 Output Table Format
 
-💾 Output Format
-The tool will save a CSV file named threat_report.csv with columns like:
+After scanning, results are shown in a table and saved as `threat_report.csv`:
 
-Input	VT_Malicious	VT_Suspicious	Abuse_Confidence	Country
-8.8.8.8	0	0	15	US
-evil.com	4	2	Not an IP
+| Column Name         | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| `Input`             | The IP address or URL that was scanned                                      |
+| `VT_Harmless`       | Number of VirusTotal engines that marked it as harmless                     |
+| `VT_Malicious`      | Number of VirusTotal engines that flagged it as malicious                   |
+| `VT_Suspicious`     | Number of VirusTotal engines that marked it as suspicious                   |
+| `VT_Undetected`     | Number of engines that didn't detect it as malicious                        |
+| `Abuse_Confidence`  | AbuseIPDB’s abuse confidence score (0–100) for IP addresses                 |
+| `Total_Reports`     | Number of abuse reports submitted to AbuseIPDB for this IP                  |
+| `Country`           | Country code where the IP is geolocated (via AbuseIPDB)                     |
+
+📁 Example saved CSV file: `threat_report.csv`
+
 
 Also generates a full report (threat_report.csv) and summary text inside the GUI.
 
